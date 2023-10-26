@@ -3,7 +3,7 @@
 ## Installation
 
 ### Docker
-The easiest way to run pyOptSparse is to use [a Docker image](https://hub.docker.com/u/kanekosh/ae588public) provided by the GSI, which already installs pyOptSparse, OpenMDAO, and other dependencies.
+The easiest way to run pyOptSparse is to use [a Docker image](https://hub.docker.com/r/kanekosh/ae588public) provided by the GSI, which already installs pyOptSparse, OpenMDAO, and other dependencies.
 Choose either AMD64 or ARM64 depending on the machine you have.
 
 You can also install pyOptSparse natively on Linux or Mac (very difficult on Windows), but you're on your own if you wish to do so.
