@@ -5,9 +5,9 @@
 ### Create a container
 1. Start from an mdolab public image
     ```
-    $ docker pull mdolab/public:u22-gcc-ompi-stable`
+    $ docker pull --planform linux/arm64 mdolab/public:u22-gcc-ompi-stable`
     ```
-    TODO: prepare AMD64 image?
+    NOTE: Set `--planform linux/amd64` or `--planform linux/arm64` (for M2 Mac)
 2. Create a container
     ```
     $ docker run -it --name AE588_pyoptsparse_XXX mdolab/public:u22-gcc-ompi-stable /bin/bash
@@ -26,13 +26,16 @@
 
 2. Install my fork of pyOptSparse
     ```
-    cd repos
-    git clone --branch sqp https://github.com/kanekosh/pyoptsparse.git
-    cd pyoptsparse
+    cd repos/pyoptsparse
+    git remote add kanekosh https://github.com/kanekosh/pyoptsparse.git
+    git checkout -b sqp
+    git config pull.rebase false
+    git pull kanekosh sqp
     pip install -e .
     ```
 3. Install my fork of OpenMDAO
     ```
+    cd repos
     git clone --branch sqp_wrapper https://github.com/kanekosh/OpenMDAO.git
     cd OpenMDAO
     pip install -e .
@@ -63,8 +66,6 @@
 2. Test the new image
     ```
     docker run -it --name test_container kanekosh/ae588public:arm64 /bin/bash
-    cd AE588_pyoptsparse_project/examples
-    python examples_openmdao.py
     ```
     TODO: test mounting Gurobi license
 3. Push to DockerHub
