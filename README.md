@@ -3,11 +3,16 @@
 ## Installation
 
 ### Docker
-The easiest way to run pyOptSparse is to use [a Docker image](https://hub.docker.com/r/kanekosh/ae588public) provided by the GSI, which already installs pyOptSparse, OpenMDAO, and other dependencies.
-Choose either AMD64 or ARM64 depending on the machine you have.
+The easiest way to run pyOptSparse is to use [a Docker image](https://hub.docker.com/r/kanekosh/ae588public) prepared by the GSI, which already installs pyOptSparse, OpenMDAO, and other dependencies.
+Choose either an AMD64 or ARM64 image depending on the machine you have.
 
+There are plenty of online resources about Docker, but [this page](https://mdolab-mach-aero.readthedocs-hosted.com/en/latest/installInstructions/dockerInstructions.html) would be a good starting point.  
+Note that the Docker image I prepared is based on the MDO Lab public image which installs all Mach-Aero packages.
+You can simply ignore those packages in this project.
+
+### Installing by yourself (not recommended)
 You can also install pyOptSparse natively on Linux or Mac (very difficult on Windows), but you're on your own if you wish to do so.
-Check the [pyOptSparse documentation](https://mdolab-pyoptsparse.readthedocs-hosted.com/en/latest/install.html). You'll need to install my fork of pyOptSparse, my fork of OpenMDAO, cvxpy, and Gurobi.
+Check the [pyOptSparse documentation](https://mdolab-pyoptsparse.readthedocs-hosted.com/en/latest/install.html). You'll need to install [my fork of pyOptSparse](https://github.com/kanekosh/pyoptsparse/blob/sqp/pyoptsparse/pySQP/sqp.py), [my fork of OpenMDAO](https://github.com/kanekosh/OpenMDAO/tree/sqp_wrapper), cvxpy, and Gurobi.
 
 ### Mounting Gurobi license
 Although the Docker image already installs Gurobi, you'll need a Gurobi license to solve large-scale problems.
